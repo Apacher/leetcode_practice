@@ -1,5 +1,7 @@
 package com.emtodo.leetcode;
 
+import java.util.HashMap;
+
 /**
  * 1-10题
  *
@@ -20,5 +22,28 @@ package com.emtodo.leetcode;
  */
 public class OneToTenQuestions {
 
-    
+    public static void main(String[] args) {
+
+    }
+
+    /**
+     * <p>两数之和</p>
+     * 1.暴力破解：双层循环。第一层用target-nums[i]得到差。第二层去寻找数组里是否有这个差值 时间复杂度O(N²)
+     *            优化的地方时第二层j可以等i+1。前面的数已经计算过了，第二层循环不必每次都计算一遍
+     * 2.哈希表：一层循环，把差值作为key，下标作为value。不存在差值则先存到哈希表。
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int[] twoSum1(int[] nums, int target) {
+        HashMap<Integer,Integer> resultMap = new HashMap();
+        for(int i=0;nums.length>i;i++){
+            int a = target - nums[i];
+            if(null !=resultMap.get(a)){
+                return new int[]{i,resultMap.get(a)};
+            }
+            resultMap.put(nums[i],i);
+        }
+        return null;
+    }
 }
