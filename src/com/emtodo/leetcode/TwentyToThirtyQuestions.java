@@ -5,7 +5,7 @@ package com.emtodo.leetcode;
  *
  * @author EM
  * @version [v1.0]
- * @date: Created in 2020/1/13 0013 下午 2:34
+ * @date: Created in 2020/1/13 0013 下午 6:34
  */
-public class TwentyToThirtyQuesutions {
+public class TwentyToThirtyQuestions {
 }

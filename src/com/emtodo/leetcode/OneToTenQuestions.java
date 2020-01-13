@@ -24,6 +24,8 @@ public class OneToTenQuestions {
 
     public static void main(String[] args) {
 
+        System.out.println(isPalindrome(-151));
+
     }
 
     /**
@@ -35,7 +37,7 @@ public class OneToTenQuestions {
      * @param target
      * @return
      */
-    public int[] twoSum1(int[] nums, int target) {
+    public static int[] twoSum(int[] nums, int target) {
         HashMap<Integer,Integer> resultMap = new HashMap();
         for(int i=0;nums.length>i;i++){
             int a = target - nums[i];
@@ -45,5 +47,49 @@ public class OneToTenQuestions {
             resultMap.put(nums[i],i);
         }
         return null;
+    }
+
+
+    /**
+     * <p>两数反转</p>
+     * @param x
+     * @return
+     */
+    public static int reverse(int x) {
+        String a = new String(x+"");
+        StringBuffer sb = new StringBuffer();
+        Boolean strResult = x<0;
+        for(int i=a.length()-1;i>=0;i--){
+            if("0".equals(a.charAt(i))){
+                continue;
+            }
+            if(strResult && i==0){
+                continue;
+            }
+            sb.append(a.charAt(i));
+        }
+        try{
+            if (strResult){
+                return Integer.parseInt("-"+sb.toString());
+            }else{
+                return Integer.parseInt(sb.toString());
+            }
+        }catch (Exception e){//整数溢出
+            return 0;
+        }
+    }
+
+    /**
+     * 回文数
+     * @param x
+     * @return
+     */
+    public static boolean isPalindrome(int x) {
+        String a = new String(x+"");
+        StringBuffer sb = new StringBuffer();
+        for(int i=a.length()-1;i>=0;i--){
+            sb.append(a.charAt(i));
+        }
+        return a.equals(sb.toString());
     }
 }
